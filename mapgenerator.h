@@ -39,8 +39,8 @@ struct Item {
     uint row;
     uint column;
 
-    bool operator!=(const Item& item) {
-        return row != item.row && column != item.column;
+    bool operator!=(const Item& item) const {
+        return (row != item.row || column != item.column);
     }
 };
 
@@ -68,6 +68,11 @@ private:
     std::vector<Item> getUnvisitedNeighbors(const Item&);
     void addUnvisitedItemToVector(const Item&, std::vector<Item>&);
     Item getRandomItem(const std::vector<Item>&);
+    void setIternalWalls(const Item &currency_point, const std::vector<Item> &);
+    int getCountNeighborsIsWall(const Item& point);
+    int getCountColumnNeighborsIsWall(const Item& point);
+    int getCountRowNeighborsIsWall(const Item& point);
+    bool isWall(const Item& point);
 
 private:
     uint rows{};
