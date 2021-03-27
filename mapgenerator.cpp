@@ -83,7 +83,7 @@ void Generator::generatePassages(Item point)
 {
     Item currency_point = point;
     while(true) {
-        (*matrix)(currency_point.row, currency_point.column) = Objects::Ground;
+        (*matrix)(currency_point.row, currency_point.column) = Objects::Point;
         auto unvisited_neighbors = getUnvisitedNeighbors(currency_point);
         if (std::size(unvisited_neighbors) == 0) {
             break;
